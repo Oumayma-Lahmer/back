@@ -53,7 +53,9 @@ public class ProduitController {
     }
 
     @PostMapping("/addToPanier")
-    public ResponseEntity<String> ajoutAuPanier(@RequestParam("id") Long id, @RequestParam("quantite") int quantite, HttpSession session) {
+    public ResponseEntity<String> ajoutAuPanier(@RequestParam("id") Long id,
+                                                @RequestParam("quantite") int quantite,
+                                                HttpSession session) {
         panierService.ajoutProduit(id, quantite, session);
         return ResponseEntity.ok("Produit ajouté au panier avec succès");
     }
