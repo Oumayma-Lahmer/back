@@ -25,7 +25,6 @@ public class CommandService {
 
     public Commande saveCommand(Commande commande) {
 
-
         commande.setEtat("Non confirmée");
         for (Produit produit: commande.getProduits()){
             produit.setCommande(commande);

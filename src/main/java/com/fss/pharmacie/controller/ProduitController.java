@@ -38,7 +38,6 @@ public class ProduitController {
     }
     @PostMapping("/save")
     public Produit saveProduit(@RequestBody Produit produit) {
-
         return produitService.saveProduit(produit);
     }
 
@@ -89,18 +88,12 @@ public class ProduitController {
 
             // Create the image URL
             String imageUrl = "/uploads/" + originalFilename;
-
-            // Create product multiple times based on the specified quantity and set image URL
-            for (int i = 0; i < quantite; i++){
                 Produit produit = new Produit();
                 produit.setNomCommercial(nomCommercial);
                 produit.setPrix(prix);
                 produit.setImageUrl(imageUrl);
-
+                produit.setQuantite(quantite);
                 produitService.saveProduit(produit);
-            }
-
-
             return ResponseEntity.status(HttpStatus.CREATED).body("Product added successfully");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to add product");

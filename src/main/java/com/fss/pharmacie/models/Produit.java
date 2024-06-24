@@ -25,6 +25,7 @@ public class Produit {
 
     private String dosage;
     private String conditionnement;
+    private int quantite;
 
      private String imageUrl;
 
